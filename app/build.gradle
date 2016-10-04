@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        applicationId "com.gieseckedevrient.android.pcscdroid"
+        applicationId "com.gigix.android.scriptdroid"
         minSdkVersion 19
         targetSdkVersion 24
     }
