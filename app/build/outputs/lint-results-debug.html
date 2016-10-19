@@ -1,0 +1,828 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Lint Report</title>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto" />
+<link rel="stylesheet" type="text/css" href="lint-results-debug_files/hololike.css" />
+<script language="javascript" type="text/javascript"> 
+<!--
+function reveal(id) {
+if (document.getElementById) {
+document.getElementById(id).style.display = 'block';
+document.getElementById(id+'Link').style.display = 'none';
+}
+}
+//--> 
+</script>
+</head>
+<body>
+<h1>Lint Report</h1>
+<div class="titleSeparator"></div>
+Check performed at Thu Oct 06 11:46:54 CEST 2016.<br/>
+1 errors and 51 warnings found:<br/><br/>
+<table class="overview">
+<tr><td></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><img border="0" align="top" src="lint-results-debug_files/lint-warning.png" alt="Warning" />
+<a href="#CommitPrefEdits">CommitPrefEdits: Missing <code>commit()</code> on <code>SharedPreference</code> editor</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><img border="0" align="top" src="lint-results-debug_files/lint-error.png" alt="Error" />
+<a href="#AppCompatResource">AppCompatResource: Menu namespace</a>
+</td></tr>
+<tr><td></td><td class="categoryColumn"><a href="#Security">Security</a>
+</td></tr>
+<tr>
+<td class="countColumn">9</td><td class="issueColumn"><img border="0" align="top" src="lint-results-debug_files/lint-warning.png" alt="Warning" />
+<a href="#UnsafeNativeCodeLocation">UnsafeNativeCodeLocation: Native code outside library directory</a>
+</td></tr>
+<tr>
+<td class="countColumn">2</td><td class="issueColumn"><img border="0" align="top" src="lint-results-debug_files/lint-warning.png" alt="Warning" />
+<a href="#AllowBackup">AllowBackup: AllowBackup/FullBackupContent Problems</a>
+</td></tr>
+<tr><td></td><td class="categoryColumn"><a href="#Performance">Performance</a>
+</td></tr>
+<tr>
+<td class="countColumn">13</td><td class="issueColumn"><img border="0" align="top" src="lint-results-debug_files/lint-warning.png" alt="Warning" />
+<a href="#UnusedResources">UnusedResources: Unused resources</a>
+</td></tr>
+<tr><td></td><td class="categoryColumn"><a href="#Usability:Icons">Usability:Icons</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><img border="0" align="top" src="lint-results-debug_files/lint-warning.png" alt="Warning" />
+<a href="#IconMissingDensityFolder">IconMissingDensityFolder: Missing density folder</a>
+</td></tr>
+<tr><td></td><td class="categoryColumn"><a href="#Usability">Usability</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><img border="0" align="top" src="lint-results-debug_files/lint-warning.png" alt="Warning" />
+<a href="#GoogleAppIndexingWarning">GoogleAppIndexingWarning: Missing support for Google App Indexing</a>
+</td></tr>
+<tr><td></td><td class="categoryColumn"><a href="#Internationalization">Internationalization</a>
+</td></tr>
+<tr>
+<td class="countColumn">24</td><td class="issueColumn"><img border="0" align="top" src="lint-results-debug_files/lint-warning.png" alt="Warning" />
+<a href="#SetTextI18n">SetTextI18n: TextView Internationalization</a>
+</td></tr>
+<tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (15)</a>
+</td></tr></table>
+<br/>
+<a name="Correctness"></a>
+<div class="category"><a href="#" title="Return to top">Correctness</a><div class="categorySeparator"></div>
+</div>
+<a name="CommitPrefEdits"></a>
+<div class="issue">
+<div class="id"><a href="#" title="Return to top">CommitPrefEdits: Missing <code>commit()</code> on <code>SharedPreference</code> editor</a><div class="issueSeparator"></div>
+</div>
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:637</span>: <span class="message">Consider using <code>apply()</code> instead; <code>commit</code> writes its data to persistent storage immediately, whereas <code>apply</code> will handle it in the background</span><br /><pre class="errorlines">
+<span class="lineno"> 634</span> 							.getDefaultSharedPreferences(appContext).edit();
+<span class="lineno"> 635</span> 					editor.putInt("logSettings",
+<span class="lineno"> 636</span> 							logRadioGroup.getCheckedRadioButtonId());
+<span class="lineno"> 637</span> 					<span class="errorspan">editor.commit();</span>
+<span class="lineno"> 638</span> 					SharedPreferences settings = PreferenceManager
+<span class="lineno"> 639</span> 							.getDefaultSharedPreferences(appContext);
+</pre>
+</div>
+<div class="metadata">Note: This issue has an associated quickfix operation in Android Studio/IntelliJ&nbsp;<img alt="Fix" border="0" align="top" src="lint-results-debug_files/lint-run.png" />
+<br>
+Priority: 6 / 10<br/>
+Category: Correctness</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Missing <code>commit()</code> on <code>SharedPreference</code> editor.</div>
+<div class="explanation">
+After calling <code>edit()</code> on a <code>SharedPreference</code>, you must call <code>commit()</code> or <code>apply()</code> on the editor to save the results.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "CommitPrefEdits" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="AppCompatResource"></a>
+<div class="issue">
+<div class="id"><a href="#" title="Return to top">AppCompatResource: Menu namespace</a><div class="issueSeparator"></div>
+</div>
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/menu/activity_main.xml">../../src/main/res/menu/activity_main.xml</a>:5</span>: <span class="message">Should use <code>app:showAsAction</code> with the appcompat library with <code>xmlns:app="http://schemas.android.com/apk/res-auto"</code></span><br /><pre class="errorlines">
+<span class="lineno">   2</span>     &lt;item android:id="@+id/menu_settings"
+<span class="lineno">   3</span>         android:title="@string/menu_settings"
+<span class="lineno">   4</span>         android:orderInCategory="100"
+<span class="lineno">   5</span>         <span class="errorspan">android:showAsAction="never" /></span>
+<span class="lineno">   6</span> &lt;/menu>
+<span class="lineno">   7</span> 
+</pre>
+</div>
+<div class="metadata">Priority: 5 / 10<br/>
+Category: Correctness</div>
+Severity: <span class="error">Error</span><div class="summary">
+Explanation: Menu namespace.</div>
+<div class="explanation">
+When using the appcompat library, menu resources should refer to the <code>showAsAction</code> in the <code>app:</code> namespace, not the <code>android:</code> namespace.<br/>
+<br/>
+Similarly, when <b>not</b> using the appcompat library, you should be using the <code>android:showAsAction</code> attribute.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "AppCompatResource" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+
+<a name="Security"></a>
+<div class="category"><a href="#" title="Return to top">Security</a><div class="categorySeparator"></div>
+</div>
+<a name="UnsafeNativeCodeLocation"></a>
+<div class="issue">
+<div class="id"><a href="#" title="Return to top">UnsafeNativeCodeLocation: Native code outside library directory</a><div class="issueSeparator"></div>
+</div>
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/raw/libccid_so">../../src/main/res/raw/libccid_so</a></span>: <span class="message">Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK.</span><br />
+<span class="location"><a href="../../src/main/res/raw/libifdmsc_so">../../src/main/res/raw/libifdmsc_so</a></span>: <span class="message">Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK.</span><br />
+<span class="location"><a href="../../src/main/res/raw/libpcsclite_so">../../src/main/res/raw/libpcsclite_so</a></span>: <span class="message">Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK.</span><br />
+<span class="location"><a href="../../src/main/res/raw/lsusb">../../src/main/res/raw/lsusb</a></span>: <span class="message">Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK.</span><br />
+<span class="location"><a href="../../src/main/res/raw/pcscd">../../src/main/res/raw/pcscd</a></span>: <span class="message">Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK.</span><br />
+<button id="UnsafeNativeCodeLocationDivLink" onclick="reveal('UnsafeNativeCodeLocationDiv');" />+ 4 More Occurrences...</button>
+<div id="UnsafeNativeCodeLocationDiv" style="display: none">
+<span class="location"><a href="../../src/main/res/raw/pcscd_msconly">../../src/main/res/raw/pcscd_msconly</a></span>: <span class="message">Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK.</span><br />
+<span class="location"><a href="../../src/main/res/raw/testpcsc">../../src/main/res/raw/testpcsc</a></span>: <span class="message">Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK.</span><br />
+<span class="location"><a href="../../src/main/res/raw/testpcsc_linked">../../src/main/res/raw/testpcsc_linked</a></span>: <span class="message">Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK.</span><br />
+<span class="location"><a href="../../src/main/res/raw/testpcsc_msconly">../../src/main/res/raw/testpcsc_msconly</a></span>: <span class="message">Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK.</span><br />
+</div>
+</div>
+<div class="metadata">Priority: 4 / 10<br/>
+Category: Security</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Native code outside library directory.</div>
+<div class="explanation">
+In general, application native code should only be placed in the application's library directory, not in other locations such as the res or assets directories. Placing the code in the library directory provides increased assurance that the code will not be tampered with after application installation. Application developers should use the features of their development environment to place application native libraries into the lib directory of their compiled APKs. Embedding non-shared library native executables into applications should be avoided when possible.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "UnsafeNativeCodeLocation" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="AllowBackup"></a>
+<div class="issue">
+<div class="id"><a href="#" title="Return to top">AllowBackup: AllowBackup/FullBackupContent Problems</a><div class="issueSeparator"></div>
+</div>
+<div class="warningslist">
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:9</span>: <span class="message">On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute <code>android:fullBackupContent</code> to specify an <code>@xml</code> resource which configures which files to backup. More info: https://developer.android.com/preview/backup/index.html</span><br /><pre class="errorlines">
+<span class="lineno">   6</span>     &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<span class="lineno">   7</span>     &lt;uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<span class="lineno">   8</span> 
+<span class="lineno">   9</span>     <span class="errorspan">&lt;application</span>
+<span class="lineno">  10</span>         android:icon="@drawable/ic_launcher"
+<span class="lineno">  11</span>         android:label="@string/app_name"
+</pre>
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:9</span>: <span class="message">Should explicitly set <code>android:allowBackup</code> to <code>true</code> or <code>false</code> (it's <code>true</code> by default, and that can have some security implications for the application's data)</span><br /><pre class="errorlines">
+<span class="lineno">   6</span>     &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<span class="lineno">   7</span>     &lt;uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<span class="lineno">   8</span> 
+<span class="lineno">   9</span>     <span class="errorspan">&lt;application</span>
+<span class="lineno">  10</span>         android:icon="@drawable/ic_launcher"
+<span class="lineno">  11</span>         android:label="@string/app_name"
+</pre>
+</div>
+<div class="metadata">Note: This issue has an associated quickfix operation in Android Studio/IntelliJ & Eclipse/ADT&nbsp;<img alt="Fix" border="0" align="top" src="lint-results-debug_files/lint-run.png" />
+<br>
+Priority: 3 / 10<br/>
+Category: Security</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: AllowBackup/FullBackupContent Problems.</div>
+<div class="explanation">
+The <code>allowBackup</code> attribute determines if an application's data can be backed up and restored. It is documented at <a href="http://developer.android.com/reference/android/R.attr.html#allowBackup">http://developer.android.com/reference/android/R.attr.html#allowBackup</a><br/>
+<br/>
+By default, this flag is set to <code>true</code>. When this flag is set to <code>true</code>, application data can be backed up and restored by the user using <code>adb backup</code> and <code>adb restore</code>.<br/>
+<br/>
+This may have security consequences for an application. <code>adb backup</code> allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. <code>adb restore</code> allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.<br/>
+<br/>
+Setting <code>allowBackup="false"</code> opts an application out of both backup and restore.<br/>
+<br/>
+To fix this warning, decide whether your application should support backup, and explicitly set <code>android:allowBackup=(true|false)"</code>.<br/>
+<br/>
+If not set to false, and if targeting API 23 or later, lint will also warn that you should set <code>android:fullBackupContent</code> to configure auto backup.
+</div>
+<br/><div class="moreinfo">More info: <ul><li><a href="https://developer.android.com/preview/backup/index.html">https://developer.android.com/preview/backup/index.html</a>
+<li><a href="http://developer.android.com/reference/android/R.attr.html#allowBackup">http://developer.android.com/reference/android/R.attr.html#allowBackup</a>
+</ul></div><br/>To suppress this error, use the issue id "AllowBackup" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+
+<a name="Performance"></a>
+<div class="category"><a href="#" title="Return to top">Performance</a><div class="categorySeparator"></div>
+</div>
+<a name="UnusedResources"></a>
+<div class="issue">
+<div class="id"><a href="#" title="Return to top">UnusedResources: Unused resources</a><div class="issueSeparator"></div>
+</div>
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/drawable-hdpi/ic_action_search.png">../../src/main/res/drawable-hdpi/ic_action_search.png</a></span>: <span class="message">The resource <code>R.drawable.ic_action_search</code> appears to be unused</span><br />
+<ul></ul><button id="Location1DivLink" onclick="reveal('Location1Div');" />+ 2 Additional Locations...</button>
+<div id="Location1Div" style="display: none">
+Additional locations: <ul>
+<li> <span class="location"><a href="../../src/main/res/drawable-mdpi/ic_action_search.png">../../src/main/res/drawable-mdpi/ic_action_search.png</a></span>
+<li> <span class="location"><a href="../../src/main/res/drawable-xhdpi/ic_action_search.png">../../src/main/res/drawable-xhdpi/ic_action_search.png</a></span>
+</ul>
+</div><br/><br/>
+<table><tr><td><a href="../../src/main/res/drawable-xhdpi/ic_action_search.png"><img border="0" align="top" src="../../src/main/res/drawable-xhdpi/ic_action_search.png" /></a>
+</td><td><a href="../../src/main/res/drawable-hdpi/ic_action_search.png"><img border="0" align="top" src="../../src/main/res/drawable-hdpi/ic_action_search.png" /></a>
+</td><td><a href="../../src/main/res/drawable-mdpi/ic_action_search.png"><img border="0" align="top" src="../../src/main/res/drawable-mdpi/ic_action_search.png" /></a>
+</td></tr><tr><th>xhdpi</th><th>hdpi</th><th>mdpi</th></tr>
+</table>
+<span class="location"><a href="../../src/main/res/raw/info_plist">../../src/main/res/raw/info_plist</a></span>: <span class="message">The resource <code>R.raw.info_plist</code> appears to be unused</span><br />
+<span class="location"><a href="../../src/main/res/raw/libccid_so">../../src/main/res/raw/libccid_so</a></span>: <span class="message">The resource <code>R.raw.libccid_so</code> appears to be unused</span><br />
+<span class="location"><a href="../../src/main/res/raw/libifdmsc_so">../../src/main/res/raw/libifdmsc_so</a></span>: <span class="message">The resource <code>R.raw.libifdmsc_so</code> appears to be unused</span><br />
+<span class="location"><a href="../../src/main/res/raw/libpcsclite_so">../../src/main/res/raw/libpcsclite_so</a></span>: <span class="message">The resource <code>R.raw.libpcsclite_so</code> appears to be unused</span><br />
+<button id="UnusedResourcesDivLink" onclick="reveal('UnusedResourcesDiv');" />+ 8 More Occurrences...</button>
+<div id="UnusedResourcesDiv" style="display: none">
+<span class="location"><a href="../../src/main/res/raw/lsusb">../../src/main/res/raw/lsusb</a></span>: <span class="message">The resource <code>R.raw.lsusb</code> appears to be unused</span><br />
+<span class="location"><a href="../../src/main/res/raw/mscpath_conf">../../src/main/res/raw/mscpath_conf</a></span>: <span class="message">The resource <code>R.raw.mscpath_conf</code> appears to be unused</span><br />
+<span class="location"><a href="../../src/main/res/raw/pcscd">../../src/main/res/raw/pcscd</a></span>: <span class="message">The resource <code>R.raw.pcscd</code> appears to be unused</span><br />
+<span class="location"><a href="../../src/main/res/raw/pcscd_msconly">../../src/main/res/raw/pcscd_msconly</a></span>: <span class="message">The resource <code>R.raw.pcscd_msconly</code> appears to be unused</span><br />
+<span class="location"><a href="../../src/main/res/raw/reader_conf">../../src/main/res/raw/reader_conf</a></span>: <span class="message">The resource <code>R.raw.reader_conf</code> appears to be unused</span><br />
+<span class="location"><a href="../../src/main/res/raw/testpcsc">../../src/main/res/raw/testpcsc</a></span>: <span class="message">The resource <code>R.raw.testpcsc</code> appears to be unused</span><br />
+<span class="location"><a href="../../src/main/res/raw/testpcsc_linked">../../src/main/res/raw/testpcsc_linked</a></span>: <span class="message">The resource <code>R.raw.testpcsc_linked</code> appears to be unused</span><br />
+<span class="location"><a href="../../src/main/res/raw/testpcsc_msconly">../../src/main/res/raw/testpcsc_msconly</a></span>: <span class="message">The resource <code>R.raw.testpcsc_msconly</code> appears to be unused</span><br />
+</div>
+</div>
+<div class="metadata">Priority: 3 / 10<br/>
+Category: Performance</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Unused resources.</div>
+<div class="explanation">
+Unused resources make applications larger and slow down builds.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "UnusedResources" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+
+<a name="Usability:Icons"></a>
+<div class="category"><a href="#" title="Return to top">Usability:Icons</a><div class="categorySeparator"></div>
+</div>
+<a name="IconMissingDensityFolder"></a>
+<div class="issue">
+<div class="id"><a href="#" title="Return to top">IconMissingDensityFolder: Missing density folder</a><div class="issueSeparator"></div>
+</div>
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res">../../src/main/res</a></span>: <span class="message">Missing density variation folders in <code>src/main/res</code>: drawable-xxhdpi, drawable-xxxhdpi</span><br />
+</div>
+<div class="metadata">Priority: 3 / 10<br/>
+Category: Usability:Icons</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Missing density folder.</div>
+<div class="explanation">
+Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra-high, extra-extra-high). This lint check identifies folders which are missing, such as <code>drawable-hdpi</code>.<br/>
+<br/>
+Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable <code>ANDROID_LINT_INCLUDE_LDPI=true</code>. For more information on current density usage, see <a href="http://developer.android.com/resources/dashboard/screens.html">http://developer.android.com/resources/dashboard/screens.html</a>
+</div>
+<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/practices/screens_support.html">http://developer.android.com/guide/practices/screens_support.html</a>
+</div><br/>To suppress this error, use the issue id "IconMissingDensityFolder" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+
+<a name="Usability"></a>
+<div class="category"><a href="#" title="Return to top">Usability</a><div class="categorySeparator"></div>
+</div>
+<a name="GoogleAppIndexingWarning"></a>
+<div class="issue">
+<div class="id"><a href="#" title="Return to top">GoogleAppIndexingWarning: Missing support for Google App Indexing</a><div class="issueSeparator"></div>
+</div>
+<div class="warningslist">
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:9</span>: <span class="message">App is not indexable by Google Search; consider adding at least one Activity with an ACTION-VIEW intent-filler. See issue explanation for more details.</span><br /><pre class="errorlines">
+<span class="lineno">   6</span>     &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<span class="lineno">   7</span>     &lt;uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<span class="lineno">   8</span> 
+<span class="lineno">   9</span>     <span class="errorspan">&lt;application</span>
+<span class="lineno">  10</span>         android:icon="@drawable/ic_launcher"
+<span class="lineno">  11</span>         android:label="@string/app_name"
+</pre>
+</div>
+<div class="metadata">Note: This issue has an associated quickfix operation in Android Studio/IntelliJ&nbsp;<img alt="Fix" border="0" align="top" src="lint-results-debug_files/lint-run.png" />
+<br>
+Priority: 5 / 10<br/>
+Category: Usability</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Missing support for Google App Indexing.</div>
+<div class="explanation">
+Adds URLs to get your app into the Google index, to get installs and traffic to your app from Google Search.
+</div>
+<br/><div class="moreinfo">More info: <a href="https://g.co/AppIndexing/AndroidStudio">https://g.co/AppIndexing/AndroidStudio</a>
+</div><br/>To suppress this error, use the issue id "GoogleAppIndexingWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+
+<a name="Internationalization"></a>
+<div class="category"><a href="#" title="Return to top">Internationalization</a><div class="categorySeparator"></div>
+</div>
+<a name="SetTextI18n"></a>
+<div class="issue">
+<div class="id"><a href="#" title="Return to top">SetTextI18n: TextView Internationalization</a><div class="issueSeparator"></div>
+</div>
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:178</span>: <span class="message">Number formatting does not take into account locale settings. Consider using <code>String.format</code> instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 175</span> 			TextView textView = new TextView(getActivity());
+<span class="lineno"> 176</span> 			textView.setGravity(Gravity.CENTER);
+<span class="lineno"> 177</span> 			Bundle args = getArguments();
+<span class="lineno"> 178</span> 			textView.setText(<span class="errorspan">Integer.toString(args.getInt(ARG_SECTION_NUMBER)));</span>
+<span class="lineno"> 179</span> 			return textView;
+<span class="lineno"> 180</span> 		}
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:271</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 268</span> 						if (status == true) {
+<span class="lineno"> 269</span> 							running = true;
+<span class="lineno"> 270</span> 							toggleService.setEnabled(true);
+<span class="lineno"> 271</span> 							runningVarLabel.setText(<span class="errorspan">"yes");</span>
+<span class="lineno"> 272</span> 							runningVarLabel.setTextColor(0xff00ff00); // green
+<span class="lineno"> 273</span> 							try {
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:281</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 278</span> 										"Error waiting for Service to start");
+<span class="lineno"> 279</span> 							}
+<span class="lineno"> 280</span> 						} else {
+<span class="lineno"> 281</span> 							runningVarLabel.setText(<span class="errorspan">"no");</span>
+<span class="lineno"> 282</span> 							runningVarLabel.setTextColor(0xffff0000); // red
+<span class="lineno"> 283</span> 							readerVarLabel.setText("-");
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:310</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 307</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 308</span> 			serviceStatusHeader.setPadding(5, 30, 0, 30);
+<span class="lineno"> 309</span> 
+<span class="lineno"> 310</span> 			serviceStatusHeader.setText(<span class="errorspan">"PcscDroid");</span>
+<span class="lineno"> 311</span> 			serviceStatusHeader.setTextSize(25);
+<span class="lineno"> 312</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:318</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 315</span> 
+<span class="lineno"> 316</span> 			toggleService = new ToggleButton(getActivity());
+<span class="lineno"> 317</span> 			toggleService.setChecked(false);
+<span class="lineno"> 318</span> 			toggleService.setText(<span class="errorspan">"Stopped");</span>
+<span class="lineno"> 319</span> 			toggleService.setTop(-50);
+<span class="lineno"> 320</span> 
+</pre>
+<button id="SetTextI18nDivLink" onclick="reveal('SetTextI18nDiv');" />+ 19 More Occurrences...</button>
+<div id="SetTextI18nDiv" style="display: none">
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:349</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 346</span> 						}
+<span class="lineno"> 347</span> */
+<span class="lineno"> 348</span> 					} else {
+<span class="lineno"> 349</span> 						button.setText(<span class="errorspan">"Stopped");</span>
+<span class="lineno"> 350</span> 						stopPCSC();
+<span class="lineno"> 351</span> 						button.setEnabled(false);
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:360</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 357</span> 
+<span class="lineno"> 358</span> 			pcscdText.setPadding(5, 10, 150, 10);
+<span class="lineno"> 359</span> 
+<span class="lineno"> 360</span> 			pcscdText.setText(<span class="errorspan">"Pcscd");</span>
+<span class="lineno"> 361</span> 			pcscdText.setTextSize(18);
+<span class="lineno"> 362</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:371</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 368</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 369</span> 			statusLabel.setPadding(5, 40, 0, 20);
+<span class="lineno"> 370</span> 
+<span class="lineno"> 371</span> 			statusLabel.setText(<span class="errorspan">"Status");</span>
+<span class="lineno"> 372</span> 			statusLabel.setTextSize(22);
+<span class="lineno"> 373</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:382</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 379</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 380</span> 			runningLabel.setPadding(5, 20, 0, 30);
+<span class="lineno"> 381</span> 
+<span class="lineno"> 382</span> 			runningLabel.setText(<span class="errorspan">"Running: ");</span>
+<span class="lineno"> 383</span> 			runningLabel.setTextSize(18);
+<span class="lineno"> 384</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:390</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 387</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 388</span> 			runningVarLabel.setPadding(20, 20, 0, 30);
+<span class="lineno"> 389</span> 
+<span class="lineno"> 390</span> 			runningVarLabel.setText(<span class="errorspan">"no");</span>
+<span class="lineno"> 391</span> 			runningVarLabel.setTextColor(0xffff0000); // RED
+<span class="lineno"> 392</span> 			runningVarLabel.setTextSize(18);
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:405</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 402</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 403</span> 			readerLabel.setPadding(5, 20, 0, 30);
+<span class="lineno"> 404</span> 
+<span class="lineno"> 405</span> 			readerLabel.setText(<span class="errorspan">"MSC-Reader: ");</span>
+<span class="lineno"> 406</span> 			readerLabel.setTextSize(16);
+<span class="lineno"> 407</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:428</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 425</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 426</span> 			atrLabel.setPadding(5, 20, 0, 30);
+<span class="lineno"> 427</span> 
+<span class="lineno"> 428</span> 			atrLabel.setText(<span class="errorspan">"MSC-ATR: ");</span>
+<span class="lineno"> 429</span> 			atrLabel.setTextSize(16);
+<span class="lineno"> 430</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:451</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 448</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 449</span> 			usbReaderLabel.setPadding(5, 20, 0, 30);
+<span class="lineno"> 450</span> 
+<span class="lineno"> 451</span> 			usbReaderLabel.setText(<span class="errorspan">"USB-Reader: ");</span>
+<span class="lineno"> 452</span> 			usbReaderLabel.setTextSize(16);
+<span class="lineno"> 453</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:474</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 471</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 472</span> 			usbAtrLabel.setPadding(5, 20, 0, 30);
+<span class="lineno"> 473</span> 
+<span class="lineno"> 474</span> 			usbAtrLabel.setText(<span class="errorspan">"USB ATR: ");</span>
+<span class="lineno"> 475</span> 			usbAtrLabel.setTextSize(16);
+<span class="lineno"> 476</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:559</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 556</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 557</span> 			logHeader.setPadding(5, 30, 0, 30);
+<span class="lineno"> 558</span> 
+<span class="lineno"> 559</span> 			logHeader.setText(<span class="errorspan">"Log");</span>
+<span class="lineno"> 560</span> 			logHeader.setTextSize(25);
+<span class="lineno"> 561</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:601</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 598</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 599</span> 			settingsHeader.setPadding(5, 30, 0, 30);
+<span class="lineno"> 600</span> 
+<span class="lineno"> 601</span> 			settingsHeader.setText(<span class="errorspan">"Settings");</span>
+<span class="lineno"> 602</span> 			settingsHeader.setTextSize(25);
+<span class="lineno"> 603</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:609</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 606</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 607</span> 			logLabel.setPadding(5, 40, 0, 20);
+<span class="lineno"> 608</span> 
+<span class="lineno"> 609</span> 			logLabel.setText(<span class="errorspan">"Log");</span>
+<span class="lineno"> 610</span> 			logLabel.setTextSize(22);
+<span class="lineno"> 611</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:615</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 612</span> 			final RadioGroup logRadioGroup = new RadioGroup(getActivity());
+<span class="lineno"> 613</span> 
+<span class="lineno"> 614</span> 			RadioButton apduonlyOption = new RadioButton(getActivity());
+<span class="lineno"> 615</span> 			apduonlyOption.setText(<span class="errorspan">"APDU Only");</span>
+<span class="lineno"> 616</span> 			RadioButton debugOption = new RadioButton(getActivity());
+<span class="lineno"> 617</span> 			debugOption.setText("Debug");
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:617</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 614</span> 			RadioButton apduonlyOption = new RadioButton(getActivity());
+<span class="lineno"> 615</span> 			apduonlyOption.setText("APDU Only");
+<span class="lineno"> 616</span> 			RadioButton debugOption = new RadioButton(getActivity());
+<span class="lineno"> 617</span> 			debugOption.setText(<span class="errorspan">"Debug");</span>
+<span class="lineno"> 618</span> 			RadioButton debugapduOption = new RadioButton(getActivity());
+<span class="lineno"> 619</span> 			debugapduOption.setText("Debug + APDU");
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:619</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 616</span> 			RadioButton debugOption = new RadioButton(getActivity());
+<span class="lineno"> 617</span> 			debugOption.setText("Debug");
+<span class="lineno"> 618</span> 			RadioButton debugapduOption = new RadioButton(getActivity());
+<span class="lineno"> 619</span> 			debugapduOption.setText(<span class="errorspan">"Debug + APDU");</span>
+<span class="lineno"> 620</span> 			RadioButton standard = new RadioButton(getActivity());
+<span class="lineno"> 621</span> 			standard.setText("None");
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:621</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 618</span> 			RadioButton debugapduOption = new RadioButton(getActivity());
+<span class="lineno"> 619</span> 			debugapduOption.setText("Debug + APDU");
+<span class="lineno"> 620</span> 			RadioButton standard = new RadioButton(getActivity());
+<span class="lineno"> 621</span> 			standard.setText(<span class="errorspan">"None");</span>
+<span class="lineno"> 622</span> 
+<span class="lineno"> 623</span> 			logRadioGroup.addView(apduonlyOption);
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:669</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 666</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 667</span> 			installLabel.setPadding(5, 40, 0, 20);
+<span class="lineno"> 668</span> 
+<span class="lineno"> 669</span> 			installLabel.setText(<span class="errorspan">"Misc");</span>
+<span class="lineno"> 670</span> 			installLabel.setTextSize(22);
+<span class="lineno"> 671</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:675</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 672</span> 			Button clearLog = new Button(getActivity());
+<span class="lineno"> 673</span> 			clearLog.setLayoutParams(new LayoutParams(
+<span class="lineno"> 674</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 675</span> 			clearLog.setText(<span class="errorspan">"Clear Log");</span>
+<span class="lineno"> 676</span> 			clearLog.setOnClickListener(new OnClickListener() {
+<span class="lineno"> 677</span> 
+</pre>
+<span class="location"><a href="../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java">../../src/main/java/com/gigix/android/scriptdroid/MainActivity.java</a>:692</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 689</span> 			Button unInstallButton = new Button(getActivity());
+<span class="lineno"> 690</span> 			unInstallButton.setLayoutParams(new LayoutParams(
+<span class="lineno"> 691</span> 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+<span class="lineno"> 692</span> 			unInstallButton.setText(<span class="errorspan">"Remove Pcscd");</span>
+<span class="lineno"> 693</span> 			unInstallButton.setOnClickListener(new OnClickListener() {
+<span class="lineno"> 694</span> 
+</pre>
+</div>
+</div>
+<div class="metadata">Priority: 6 / 10<br/>
+Category: Internationalization</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: TextView Internationalization.</div>
+<div class="explanation">
+When calling <code>TextView#setText</code><br/>
+* Never call <code>Number#toString()</code> to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using <code>String#format</code> with proper format specifications (<code>%d</code> or <code>%f</code>) instead.<br/>
+* Do not pass a string literal (e.g. "Hello") to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.<br/>
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated.
+</div>
+<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/resources/localization.html">http://developer.android.com/guide/topics/resources/localization.html</a>
+</div><br/>To suppress this error, use the issue id "SetTextI18n" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+
+<a name="MissingIssues"></a>
+<div class="category">Disabled Checks<div class="categorySeparator"></div>
+</div>
+The following issues were not run by lint, either because the check is not enabled by default, or because it was disabled with a command line flag or via one or more lint.xml configuration files in the project directories.
+<br/><br/>
+<a name="AppLinksAutoVerifyError"></a>
+<div class="issue">
+<div class="id">AppLinksAutoVerifyError<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+Priority: 5 / 10<br/>
+Category: Correctness</div>
+Severity: <span class="error">Error</span><div class="summary">
+Explanation: App Links Auto Verification Failure.</div>
+<div class="explanation">
+Ensures that app links are correctly set and associated with website.
+</div>
+<br/><div class="moreinfo">More info: <a href="https://g.co/appindexing/applinks">https://g.co/appindexing/applinks</a>
+</div><br/>To suppress this error, use the issue id "AppLinksAutoVerifyError" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="AppLinksAutoVerifyWarning"></a>
+<div class="issue">
+<div class="id">AppLinksAutoVerifyWarning<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+Priority: 5 / 10<br/>
+Category: Correctness</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Potential App Links Auto Verification Failure.</div>
+<div class="explanation">
+Ensures that app links are correctly set and associated with website.
+</div>
+<br/><div class="moreinfo">More info: <a href="https://g.co/appindexing/applinks">https://g.co/appindexing/applinks</a>
+</div><br/>To suppress this error, use the issue id "AppLinksAutoVerifyWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="BackButton"></a>
+<div class="issue">
+<div class="id">BackButton<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+Priority: 6 / 10<br/>
+Category: Usability</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Back button.</div>
+<div class="explanation">
+According to the Android Design Guide,<br/>
+<br/>
+"Other platforms use an explicit back button with label to allow the user to navigate up the application's hierarchy. Instead, Android uses the main action bar's app icon for hierarchical navigation and the navigation bar's back button for temporal navigation."<br/>
+This check is not very sophisticated (it just looks for buttons with the label "Back"), so it is disabled by default to not trigger on common scenarios like pairs of Back/Next buttons to paginate through screens.
+</div>
+<br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/patterns/pure-android.html">http://developer.android.com/design/patterns/pure-android.html</a>
+</div><br/>To suppress this error, use the issue id "BackButton" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="EasterEgg"></a>
+<div class="issue">
+<div class="id">EasterEgg<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+Priority: 6 / 10<br/>
+Category: Security</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Code contains easter egg.</div>
+<div class="explanation">
+An "easter egg" is code deliberately hidden in the code, both from potential users and even from other developers. This lint check looks for code which looks like it may be hidden from sight.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "EasterEgg" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="FieldGetter"></a>
+<div class="issue">
+<div class="id">FieldGetter<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+Priority: 4 / 10<br/>
+Category: Performance</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Using getter instead of field.</div>
+<div class="explanation">
+Accessing a field within the class that defines a getter for that field is at least 3 times faster than calling the getter. For simple getters that do nothing other than return the field, you might want to just reference the local field directly instead.<br/>
+<br/>
+<b>NOTE</b>: As of Android 2.3 (Gingerbread), this optimization is performed automatically by Dalvik, so there is no need to change your code; this is only relevant if you are targeting older versions of Android.
+</div>
+<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/practices/design/performance.html#internal_get_set">http://developer.android.com/guide/practices/design/performance.html#internal_get_set</a>
+</div><br/>To suppress this error, use the issue id "FieldGetter" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="GoogleAppIndexingApiWarning"></a>
+<div class="issue">
+<div class="id">GoogleAppIndexingApiWarning<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Note: This issue has an associated quickfix operation in Android Studio/IntelliJ&nbsp;<img alt="Fix" border="0" align="top" src="lint-results-debug_files/lint-run.png" />
+<br>
+Disabled By: Default<br/>
+Priority: 5 / 10<br/>
+Category: Usability</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Missing support for Google App Indexing Api.</div>
+<div class="explanation">
+Adds URLs to get your app into the Google index, to get installs and traffic to your app from Google Search.
+</div>
+<br/><div class="moreinfo">More info: <a href="https://g.co/AppIndexing/AndroidStudio">https://g.co/AppIndexing/AndroidStudio</a>
+</div><br/>To suppress this error, use the issue id "GoogleAppIndexingApiWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="IconExpectedSize"></a>
+<div class="issue">
+<div class="id">IconExpectedSize<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+Priority: 5 / 10<br/>
+Category: Usability:Icons</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Icon has incorrect size.</div>
+<div class="explanation">
+There are predefined sizes (for each density) for launcher icons. You should follow these conventions to make sure your icons fit in with the overall look of the platform.
+</div>
+<br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/style/iconography.html">http://developer.android.com/design/style/iconography.html</a>
+</div><br/>To suppress this error, use the issue id "IconExpectedSize" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="LogConditional"></a>
+<div class="issue">
+<div class="id">LogConditional<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+Priority: 5 / 10<br/>
+Category: Performance</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Unconditional Logging Calls.</div>
+<div class="explanation">
+The BuildConfig class (available in Tools 17) provides a constant, "DEBUG", which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a "if (false)" check, surrounding your logging calls with a check for BuildConfig.DEBUG is a good idea.<br/>
+<br/>
+If you <b>really</b> intend for the logging to be present in release mode, you can suppress this warning with a @SuppressLint annotation for the intentional logging calls.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "LogConditional" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="MangledCRLF"></a>
+<div class="issue">
+<div class="id">MangledCRLF<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Note: This issue has an associated quickfix operation in Eclipse/ADT&nbsp;<img alt="Fix" border="0" align="top" src="lint-results-debug_files/lint-run.png" />
+<br>
+Disabled By: Default<br/>
+Priority: 2 / 10<br/>
+Category: Correctness</div>
+Severity: <span class="error">Error</span><div class="summary">
+Explanation: Mangled file line endings.</div>
+<div class="explanation">
+On Windows, line endings are typically recorded as carriage return plus newline: \r\n.<br/>
+<br/>
+This detector looks for invalid line endings with repeated carriage return characters (without newlines). Previous versions of the ADT plugin could accidentally introduce these into the file, and when editing the file, the editor could produce confusing visual artifacts.
+</div>
+<br/><div class="moreinfo">More info: <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=375421">https://bugs.eclipse.org/bugs/show_bug.cgi?id=375421</a>
+</div><br/>To suppress this error, use the issue id "MangledCRLF" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="NegativeMargin"></a>
+<div class="issue">
+<div class="id">NegativeMargin<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+Priority: 4 / 10<br/>
+Category: Usability</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Negative Margins.</div>
+<div class="explanation">
+Margin values should be positive. Negative values are generally a sign that you are making assumptions about views surrounding the current one, or may be tempted to turn off child clipping to allow a view to escape its parent. Turning off child clipping to do this not only leads to poor graphical performance, it also results in wrong touch event handling since touch events are based strictly on a chain of parent-rect hit tests. Finally, making assumptions about the size of strings can lead to localization problems.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "NegativeMargin" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="NewerVersionAvailable"></a>
+<div class="issue">
+<div class="id">NewerVersionAvailable<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Note: This issue has an associated quickfix operation in Android Studio/IntelliJ&nbsp;<img alt="Fix" border="0" align="top" src="lint-results-debug_files/lint-run.png" />
+<br>
+Disabled By: Default<br/>
+Priority: 4 / 10<br/>
+Category: Correctness</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Newer Library Versions Available.</div>
+<div class="explanation">
+This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the <code>GradleDependency</code> check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also <b>much</b> slower.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "NewerVersionAvailable" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="SelectableText"></a>
+<div class="issue">
+<div class="id">SelectableText<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Note: This issue has an associated quickfix operation in Android Studio/IntelliJ&nbsp;<img alt="Fix" border="0" align="top" src="lint-results-debug_files/lint-run.png" />
+<br>
+Disabled By: Default<br/>
+Priority: 7 / 10<br/>
+Category: Usability</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Dynamic text should probably be selectable.</div>
+<div class="explanation">
+If a <code>&lt;TextView></code> is used to display data, the user might want to copy that data and paste it elsewhere. To allow this, the <code>&lt;TextView></code> should specify <code>android:textIsSelectable="true"</code>.<br/>
+<br/>
+This lint check looks for TextViews which are likely to be displaying data: views whose text is set dynamically. This value will be ignored on platforms older than API 11, so it is okay to set it regardless of your <code>minSdkVersion</code>.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "SelectableText" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="StopShip"></a>
+<div class="issue">
+<div class="id">StopShip<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Note: This issue has an associated quickfix operation in Android Studio/IntelliJ&nbsp;<img alt="Fix" border="0" align="top" src="lint-results-debug_files/lint-run.png" />
+<br>
+Disabled By: Default<br/>
+Priority: 10 / 10<br/>
+Category: Correctness</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Code contains <code>STOPSHIP</code> marker.</div>
+<div class="explanation">
+Using the comment <code>// STOPSHIP</code> can be used to flag code that is incomplete but checked in. This comment marker can be used to indicate that the code should not be shipped until the issue is addressed, and lint will look for these.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "StopShip" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="TypographyQuotes"></a>
+<div class="issue">
+<div class="id">TypographyQuotes<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Note: This issue has an associated quickfix operation in Android Studio/IntelliJ & Eclipse/ADT&nbsp;<img alt="Fix" border="0" align="top" src="lint-results-debug_files/lint-run.png" />
+<br>
+Disabled By: Default<br/>
+Priority: 5 / 10<br/>
+Category: Usability:Typography</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Straight quotes can be replaced with curvy quotes.</div>
+<div class="explanation">
+Straight single quotes and double quotes, when used as a pair, can be replaced by "curvy quotes" (or directional quotes). This can make the text more readable.<br/>
+<br/>
+Note that you should never use grave accents and apostrophes to quote, `like this'.<br/>
+<br/>
+(Also note that you should not use curvy quotes for code fragments.)
+</div>
+<br/><div class="moreinfo">More info: <a href="http://en.wikipedia.org/wiki/Quotation_mark">http://en.wikipedia.org/wiki/Quotation_mark</a>
+</div><br/>To suppress this error, use the issue id "TypographyQuotes" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+<a name="UnusedIds"></a>
+<div class="issue">
+<div class="id">UnusedIds<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+Priority: 1 / 10<br/>
+Category: Performance</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Unused id.</div>
+<div class="explanation">
+This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "UnusedIds" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+
+<a name="SuppressInfo"></a>
+<div class="category">Suppressing Warnings and Errors<div class="categorySeparator"></div>
+</div>
+Lint errors can be suppressed in a variety of ways:<br/>
+<br/>
+1. With a <code>@SuppressLint</code> annotation in the Java code<br/>
+2. With a <code>tools:ignore</code> attribute in the XML file<br/>
+3. With ignore flags specified in the <code>build.gradle</code> file, as explained below<br/>
+4. With a <code>lint.xml</code> configuration file in the project<br/>
+5. With a <code>lint.xml</code> configuration file passed to lint via the --config flag<br/>
+6. With the --ignore flag passed to lint.<br/>
+<br/>
+To suppress a lint warning with an annotation, add a <code>@SuppressLint("id")</code> annotation on the class, method or variable declaration closest to the warning instance you want to disable. The id can be one or more issue id's, such as <code>"UnusedResources"</code> or <code>{"UnusedResources","UnusedIds"}</code>, or it can be <code>"all"</code> to suppress all lint warnings in the given scope.<br/>
+<br/>
+To suppress a lint warning in an XML file, add a <code>tools:ignore="id"</code> attribute on the element containing the error, or one of its surrounding elements. You also need to define the namespace for the tools prefix on the root element in your document, next to the <code>xmlns:android</code> declaration:<br/>
+<code>xmlns:tools="http://schemas.android.com/tools"</code><br/>
+<br/>
+To suppress a lint warning in a <code>build.gradle</code> file, add a section like this:<br/>
+<br/>
+android {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;lintOptions {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disable 'TypographyFractions','TypographyQuotes'<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
+<br/>
+Here we specify a comma separated list of issue id's after the disable command. You can also use <code>warning</code> or <code>error</code> instead of <code>disable</code> to change the severity of issues.<br/>
+<br/>
+To suppress lint warnings with a configuration XML file, create a file named <code>lint.xml</code> and place it at the root directory of the project in which it applies.<br/>
+<br/>
+The format of the <code>lint.xml</code> file is something like the following:<br/>
+<br/>
+&lt;?xml version="1.0" encoding="UTF-8"?><br/>
+&lt;lint><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Disable this given check in this project --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="IconMissingDensityFolder" severity="ignore" /><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Ignore the ObsoleteLayoutParam issue in the given files --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="ObsoleteLayoutParam"><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout/activation.xml" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout-xlarge/activation.xml" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/issue><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Ignore the UselessLeaf issue in the given file --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="UselessLeaf"><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout/main.xml" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/issue><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Change the severity of hardcoded strings to "error" --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="HardcodedText" severity="error" /><br/>
+&lt;/lint><br/>
+<br/>
+To suppress lint checks from the command line, pass the --ignore flag with a comma separated list of ids to be suppressed, such as:<br/>
+<code>$ lint --ignore UnusedResources,UselessLeaf /my/project/path</code><br/>
+<br/>
+For more information, see <a href="http://g.co/androidstudio/suppressing-lint-warnings">http://g.co/androidstudio/suppressing-lint-warnings</a><br/>
+
+
+</body>
+</html>

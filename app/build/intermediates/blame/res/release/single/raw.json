@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/testpcsc_msconly",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/testpcsc_msconly"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/lsusb",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/lsusb"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/pcscd_msconly",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/pcscd_msconly"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/libpcsclite_so",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/libpcsclite_so"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/libccid_so",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/libccid_so"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/testpcsc",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/testpcsc"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/info_plist",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/info_plist"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/testpcsc_linked",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/testpcsc_linked"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/mscpath_conf",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/mscpath_conf"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/reader_conf",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/reader_conf"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/pcscd",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/pcscd"
+    },
+    {
+        "merged": "/home/gigi/AndroidStudioProjects/scriptdroid/app/build/intermediates/res/merged/release/raw/libifdmsc_so",
+        "source": "/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/libifdmsc_so"
+    }
+]

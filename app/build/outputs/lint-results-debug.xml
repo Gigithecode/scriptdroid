@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 25.1.7">
+
+    <issue
+        id="CommitPrefEdits"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Missing `commit()` on `SharedPreference` editor"
+        explanation="After calling `edit()` on a `SharedPreference`, you must call `commit()` or `apply()` on the editor to save the results."
+        errorLine1="     editor.commit();"
+        errorLine2="     ~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="637"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="AppCompatResource"
+        severity="Error"
+        message="Should use `app:showAsAction` with the appcompat library with `xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;`"
+        category="Correctness"
+        priority="5"
+        summary="Menu namespace"
+        explanation="When using the appcompat library, menu resources should refer to the `showAsAction` in the `app:` namespace, not the `android:` namespace.
+
+Similarly, when *not* using the appcompat library, you should be using the `android:showAsAction` attribute."
+        errorLine1="        android:showAsAction=&quot;never&quot; />"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/menu/activity_main.xml"
+            line="5"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnsafeNativeCodeLocation"
+        severity="Warning"
+        message="Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK."
+        category="Security"
+        priority="4"
+        summary="Native code outside library directory"
+        explanation="In general, application native code should only be placed in the application&apos;s library directory, not in other locations such as the res or assets directories. Placing the code in the library directory provides increased assurance that the code will not be tampered with after application installation. Application developers should use the features of their development environment to place application native libraries into the lib directory of their compiled APKs. Embedding non-shared library native executables into applications should be avoided when possible.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/libccid_so"/>
+    </issue>
+
+    <issue
+        id="UnsafeNativeCodeLocation"
+        severity="Warning"
+        message="Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK."
+        category="Security"
+        priority="4"
+        summary="Native code outside library directory"
+        explanation="In general, application native code should only be placed in the application&apos;s library directory, not in other locations such as the res or assets directories. Placing the code in the library directory provides increased assurance that the code will not be tampered with after application installation. Application developers should use the features of their development environment to place application native libraries into the lib directory of their compiled APKs. Embedding non-shared library native executables into applications should be avoided when possible.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/libifdmsc_so"/>
+    </issue>
+
+    <issue
+        id="UnsafeNativeCodeLocation"
+        severity="Warning"
+        message="Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK."
+        category="Security"
+        priority="4"
+        summary="Native code outside library directory"
+        explanation="In general, application native code should only be placed in the application&apos;s library directory, not in other locations such as the res or assets directories. Placing the code in the library directory provides increased assurance that the code will not be tampered with after application installation. Application developers should use the features of their development environment to place application native libraries into the lib directory of their compiled APKs. Embedding non-shared library native executables into applications should be avoided when possible.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/libpcsclite_so"/>
+    </issue>
+
+    <issue
+        id="UnsafeNativeCodeLocation"
+        severity="Warning"
+        message="Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK."
+        category="Security"
+        priority="4"
+        summary="Native code outside library directory"
+        explanation="In general, application native code should only be placed in the application&apos;s library directory, not in other locations such as the res or assets directories. Placing the code in the library directory provides increased assurance that the code will not be tampered with after application installation. Application developers should use the features of their development environment to place application native libraries into the lib directory of their compiled APKs. Embedding non-shared library native executables into applications should be avoided when possible.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/lsusb"/>
+    </issue>
+
+    <issue
+        id="UnsafeNativeCodeLocation"
+        severity="Warning"
+        message="Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK."
+        category="Security"
+        priority="4"
+        summary="Native code outside library directory"
+        explanation="In general, application native code should only be placed in the application&apos;s library directory, not in other locations such as the res or assets directories. Placing the code in the library directory provides increased assurance that the code will not be tampered with after application installation. Application developers should use the features of their development environment to place application native libraries into the lib directory of their compiled APKs. Embedding non-shared library native executables into applications should be avoided when possible.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/pcscd"/>
+    </issue>
+
+    <issue
+        id="UnsafeNativeCodeLocation"
+        severity="Warning"
+        message="Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK."
+        category="Security"
+        priority="4"
+        summary="Native code outside library directory"
+        explanation="In general, application native code should only be placed in the application&apos;s library directory, not in other locations such as the res or assets directories. Placing the code in the library directory provides increased assurance that the code will not be tampered with after application installation. Application developers should use the features of their development environment to place application native libraries into the lib directory of their compiled APKs. Embedding non-shared library native executables into applications should be avoided when possible.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/pcscd_msconly"/>
+    </issue>
+
+    <issue
+        id="UnsafeNativeCodeLocation"
+        severity="Warning"
+        message="Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK."
+        category="Security"
+        priority="4"
+        summary="Native code outside library directory"
+        explanation="In general, application native code should only be placed in the application&apos;s library directory, not in other locations such as the res or assets directories. Placing the code in the library directory provides increased assurance that the code will not be tampered with after application installation. Application developers should use the features of their development environment to place application native libraries into the lib directory of their compiled APKs. Embedding non-shared library native executables into applications should be avoided when possible.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/testpcsc"/>
+    </issue>
+
+    <issue
+        id="UnsafeNativeCodeLocation"
+        severity="Warning"
+        message="Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK."
+        category="Security"
+        priority="4"
+        summary="Native code outside library directory"
+        explanation="In general, application native code should only be placed in the application&apos;s library directory, not in other locations such as the res or assets directories. Placing the code in the library directory provides increased assurance that the code will not be tampered with after application installation. Application developers should use the features of their development environment to place application native libraries into the lib directory of their compiled APKs. Embedding non-shared library native executables into applications should be avoided when possible.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/testpcsc_linked"/>
+    </issue>
+
+    <issue
+        id="UnsafeNativeCodeLocation"
+        severity="Warning"
+        message="Embedding non-shared library native executables into applications should be avoided when possible, as there is an increased risk that the executables could be tampered with after installation. Instead, native code should be placed in a shared library, and the features of the development environment should be used to place the shared library in the lib directory of the compiled APK."
+        category="Security"
+        priority="4"
+        summary="Native code outside library directory"
+        explanation="In general, application native code should only be placed in the application&apos;s library directory, not in other locations such as the res or assets directories. Placing the code in the library directory provides increased assurance that the code will not be tampered with after application installation. Application developers should use the features of their development environment to place application native libraries into the lib directory of their compiled APKs. Embedding non-shared library native executables into applications should be avoided when possible.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/testpcsc_msconly"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup. More info: https://developer.android.com/preview/backup/index.html"
+        category="Security"
+        priority="3"
+        summary="AllowBackup/FullBackupContent Problems"
+        explanation="The `allowBackup` attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup
+
+By default, this flag is set to `true`. When this flag is set to `true`, application data can be backed up and restored by the user using `adb backup` and `adb restore`.
+
+This may have security consequences for an application. `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.
+
+Setting `allowBackup=&quot;false&quot;` opts an application out of both backup and restore.
+
+To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`.
+
+If not set to false, and if targeting API 23 or later, lint will also warn that you should set `android:fullBackupContent` to configure auto backup."
+        url="https://developer.android.com/preview/backup/index.html"
+        urls="https://developer.android.com/preview/backup/index.html,http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application"
+        errorLine2="    ^"
+        quickfix="studio,adt">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/AndroidManifest.xml"
+            line="9"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="Should explicitly set `android:allowBackup` to `true` or `false` (it&apos;s `true` by default, and that can have some security implications for the application&apos;s data)"
+        category="Security"
+        priority="3"
+        summary="AllowBackup/FullBackupContent Problems"
+        explanation="The `allowBackup` attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup
+
+By default, this flag is set to `true`. When this flag is set to `true`, application data can be backed up and restored by the user using `adb backup` and `adb restore`.
+
+This may have security consequences for an application. `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.
+
+Setting `allowBackup=&quot;false&quot;` opts an application out of both backup and restore.
+
+To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`.
+
+If not set to false, and if targeting API 23 or later, lint will also warn that you should set `android:fullBackupContent` to configure auto backup."
+        url="https://developer.android.com/preview/backup/index.html"
+        urls="https://developer.android.com/preview/backup/index.html,http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application"
+        errorLine2="    ^"
+        quickfix="studio,adt">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/AndroidManifest.xml"
+            line="9"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_action_search` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/drawable-hdpi/ic_action_search.png"/>
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/drawable-mdpi/ic_action_search.png"/>
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/drawable-xhdpi/ic_action_search.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.info_plist` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/info_plist"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.libccid_so` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/libccid_so"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.libifdmsc_so` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/libifdmsc_so"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.libpcsclite_so` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/libpcsclite_so"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.lsusb` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/lsusb"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.mscpath_conf` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/mscpath_conf"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.pcscd` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/pcscd"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.pcscd_msconly` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/pcscd_msconly"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.reader_conf` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/reader_conf"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.testpcsc` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/testpcsc"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.testpcsc_linked` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/testpcsc_linked"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.raw.testpcsc_msconly` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res/raw/testpcsc_msconly"/>
+    </issue>
+
+    <issue
+        id="IconMissingDensityFolder"
+        severity="Warning"
+        message="Missing density variation folders in `src/main/res`: drawable-xxhdpi, drawable-xxxhdpi"
+        category="Usability:Icons"
+        priority="3"
+        summary="Missing density folder"
+        explanation="Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra-high, extra-extra-high). This lint check identifies folders which are missing, such as `drawable-hdpi`.
+
+Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable `ANDROID_LINT_INCLUDE_LDPI=true`. For more information on current density usage, see http://developer.android.com/resources/dashboard/screens.html"
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/res"/>
+    </issue>
+
+    <issue
+        id="GoogleAppIndexingWarning"
+        severity="Warning"
+        message="App is not indexable by Google Search; consider adding at least one Activity with an ACTION-VIEW intent-filler. See issue explanation for more details."
+        category="Usability"
+        priority="5"
+        summary="Missing support for Google App Indexing"
+        explanation="Adds URLs to get your app into the Google index, to get installs and traffic to your app from Google Search."
+        url="https://g.co/AppIndexing/AndroidStudio"
+        urls="https://g.co/AppIndexing/AndroidStudio"
+        errorLine1="    &lt;application"
+        errorLine2="    ^"
+        quickfix="studio">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/AndroidManifest.xml"
+            line="9"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="Number formatting does not take into account locale settings. Consider using `String.format` instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="178"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="       runningVarLabel.setText(&quot;yes&quot;);"
+        errorLine2="                               ~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="271"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="       runningVarLabel.setText(&quot;no&quot;);"
+        errorLine2="                               ~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="281"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   serviceStatusHeader.setText(&quot;PcscDroid&quot;);"
+        errorLine2="                               ~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="310"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   toggleService.setText(&quot;Stopped&quot;);"
+        errorLine2="                         ~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="318"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="      button.setText(&quot;Stopped&quot;);"
+        errorLine2="                     ~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="349"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   pcscdText.setText(&quot;Pcscd&quot;);"
+        errorLine2="                     ~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="360"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   statusLabel.setText(&quot;Status&quot;);"
+        errorLine2="                       ~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="371"
+            column="24"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   runningLabel.setText(&quot;Running: &quot;);"
+        errorLine2="                        ~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="382"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   runningVarLabel.setText(&quot;no&quot;);"
+        errorLine2="                           ~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="390"
+            column="28"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   readerLabel.setText(&quot;MSC-Reader: &quot;);"
+        errorLine2="                       ~~~~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="405"
+            column="24"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   atrLabel.setText(&quot;MSC-ATR: &quot;);"
+        errorLine2="                    ~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="428"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   usbReaderLabel.setText(&quot;USB-Reader: &quot;);"
+        errorLine2="                          ~~~~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="451"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   usbAtrLabel.setText(&quot;USB ATR: &quot;);"
+        errorLine2="                       ~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="474"
+            column="24"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   logHeader.setText(&quot;Log&quot;);"
+        errorLine2="                     ~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="559"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   settingsHeader.setText(&quot;Settings&quot;);"
+        errorLine2="                          ~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="601"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   logLabel.setText(&quot;Log&quot;);"
+        errorLine2="                    ~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="609"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   apduonlyOption.setText(&quot;APDU Only&quot;);"
+        errorLine2="                          ~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="615"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   debugOption.setText(&quot;Debug&quot;);"
+        errorLine2="                       ~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="617"
+            column="24"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   debugapduOption.setText(&quot;Debug + APDU&quot;);"
+        errorLine2="                           ~~~~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="619"
+            column="28"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   standard.setText(&quot;None&quot;);"
+        errorLine2="                    ~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="621"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   installLabel.setText(&quot;Misc&quot;);"
+        errorLine2="                        ~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="669"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   clearLog.setText(&quot;Clear Log&quot;);"
+        errorLine2="                    ~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="675"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        severity="Warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        category="Internationalization"
+        priority="6"
+        summary="TextView Internationalization"
+        explanation="When calling `TextView#setText`
+* Never call `Number#toString()` to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using `String#format` with proper format specifications (`%d` or `%f`) instead.
+* Do not pass a string literal (e.g. &quot;Hello&quot;) to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.
+* Do not build messages by concatenating text chunks. Such messages can not be properly translated."
+        url="http://developer.android.com/guide/topics/resources/localization.html"
+        urls="http://developer.android.com/guide/topics/resources/localization.html"
+        errorLine1="   unInstallButton.setText(&quot;Remove Pcscd&quot;);"
+        errorLine2="                           ~~~~~~~~~~~~~~">
+        <location
+            file="/home/gigi/AndroidStudioProjects/scriptdroid/app/src/main/java/com/gigix/android/scriptdroid/MainActivity.java"
+            line="692"
+            column="28"/>
+    </issue>
+
+</issues>

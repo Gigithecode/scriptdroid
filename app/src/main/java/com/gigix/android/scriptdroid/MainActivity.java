@@ -18,7 +18,7 @@ package com.gigix.android.scriptdroid;
 import java.io.IOException;
 
 import android.app.ActionBar;
-import android.app.Activity;
+//import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -52,8 +52,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
-import com.gieseckedevrient.android.pcscdroid.R;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -155,7 +153,7 @@ public class MainActivity extends FragmentActivity implements
 		public CharSequence getPageTitle(int position) {
 			switch (position) {
 			case 0:
-				return getString(R.string.title_servicestatus).toUpperCase();
+//				return getString(R.string.title_servicestatus).toUpperCase();
 			case 1:
 				return getString(R.string.title_log).toUpperCase();
 			case 2:
